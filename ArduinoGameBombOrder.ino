@@ -18,10 +18,10 @@ void loop(){
   else if(LedsStatus(0,1,1)){
     noTone(buzzer);
   }
-  else if(LedsStauts(0,0,1)){
+  else if(LedsStatus(0,0,1)){
     noTone(buzzer);
   }
-  else if(LedsStauts(0,0,0)){
+  else if(LedsStatus(0,0,0)){
     noTone(buzzer);
   }
   else{
@@ -31,7 +31,7 @@ void loop(){
 
 boolean LedsStatus(int l1, int l2, int l3){
   boolean status;
-  if(digitalRead(yellowRed) == l1 && digitalRead(redLed) == l2 && digitalRead(greenLed) == l3)
+  if(digitalRead(yellowLed) == l1 && digitalRead(redLed) == l2 && digitalRead(greenLed) == l3)
   {
     status = true;
   }
