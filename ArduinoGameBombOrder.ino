@@ -8,7 +8,6 @@ void setup(){
   pinMode(redLed,OUTPUT);
   pinMode(greenLed,OUTPUT);
   pinMode(yellowLed,OUTPUT);
-  pinMode(buzzer,OUTPUT);
 }
 
 void loop(){
