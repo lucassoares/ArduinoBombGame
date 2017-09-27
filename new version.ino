@@ -2,13 +2,12 @@ const int redLed = 12;
 const int greenLed = 9;
 const int yellowLed = 11;
 const int blueLed = 10;
-const int buzzer = 3;
+const int buzzer = 4;
 const int signalBuzzer = 440;
 const int btnPin = 2;
 int position = 0;
-
 long previousMillis = 0;  
-long buzzerInterval = 60000;
+long buzzerInterval = 5000;
 
 void setup(){
   Serial.begin(9600);
@@ -19,6 +18,7 @@ void setup(){
   pinMode(greenLed,OUTPUT);
   pinMode(yellowLed,OUTPUT);
   pinMode(blueLed,OUTPUT);
+  pinMode(buzzer,OUTPUT);
   attachInterrupt(digitalPinToInterrupt(btnPin), Sequencia, RISING);
 }
 
@@ -35,14 +35,13 @@ void Sequencia(){
 void loop(){
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis > buzzerInterval){
-    previousMillis = currentMillis;
-    tone(buzzer,signalBuzzer);
+    previousMillis = currentMillis; 
+    tone(buzzer,signalBuzzer, 200);
+    delay(100);
+    noTone(buzzer);
     Serial.println("Tocou");
   }
-  else if(currentMillis - previousMillis > 1000){
-    noTone(buzzer);
-    Serial.println("Desligou");
-  }
+  
 
  
   switch(position){
